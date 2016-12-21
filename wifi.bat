@@ -66,7 +66,7 @@ FOR /F "tokens=*" %%A IN (tmp_wifi_stat.txt) DO (
 		IF !found!==2 (
 			SET /A loop+=1
 		)
-		REM found thrid entry, the wifi signal strength
+		REM found third entry, the wifi signal strength
 		IF !loop!==3 (
 			SET signal=%%x
 			SET /A signal=!signal:~0,-1!
