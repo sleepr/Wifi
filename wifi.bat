@@ -128,4 +128,5 @@ SET mytime=
 SET repeat=
 SET repeatloop=
 SET CR=
+PAUSE
 EXIT /B 0
