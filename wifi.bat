@@ -24,7 +24,7 @@ SET mydate=0
 SET mytime=0
 SET repeat=0
 SET /A repeatloop=0
-FOR	/F %%a IN ('COPY /Z "%~dpf0" NUL') DO SET "CR=%%a"
+FOR /F %%a IN ('COPY /Z "%~dpf0" NUL') DO SET "CR=%%a"
 
 REM set, in seconds, how long to wait between each loop
 SET rep=1
@@ -56,6 +56,7 @@ TIMEOUT /t %rep% /nobreak > NUL
 REM Run the wifi status loop
 NETSH wlan show interface > tmp_wifi_stat.txt
 
+REM the loop to check the tmp-file for signal strength, can probably be improved alot...
 FOR /F "tokens=*" %%A IN (tmp_wifi_stat.txt) DO (
 	FOR /D %%x IN (%%A) DO (
 		REM find the line with "Signal"
